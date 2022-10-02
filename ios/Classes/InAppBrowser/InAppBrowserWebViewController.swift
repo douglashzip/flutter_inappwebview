@@ -80,7 +80,6 @@ public class InAppBrowserWebViewController: UIViewController, InAppBrowserDelega
         progressBar = UIProgressView(progressViewStyle: .bar)
         
         view = UIView()
-        view.backgroundColor = Color(UIColor.systemBackground)
         view.addSubview(webView)
         view.insertSubview(progressBar, aboveSubview: webView)
     }

@@ -103,6 +103,11 @@ public class InAppBrowserManager: NSObject, FlutterPlugin {
         let storyboard = UIStoryboard(name: WEBVIEW_STORYBOARD, bundle: Bundle(for: InAppWebViewFlutterPlugin.self))
         let navController = storyboard.instantiateViewController(withIdentifier: NAV_STORYBOARD_CONTROLLER_ID) as! InAppBrowserNavigationController
         webViewController.edgesForExtendedLayout = []
+        if #available(iOS 13.0, *) {
+            navController.view.backgroundColor = UIColor.systemBackground
+        } else {
+            navController.view.backgroundColor = UIColor.white
+        }
         navController.pushViewController(webViewController, animated: false)
         webViewController.prepareNavigationControllerBeforeViewWillAppear()
         
